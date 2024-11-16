@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+<style>
+  /* Blog Author Section Styling */
+.blog-author .container {
+max-width: 800px;
+margin: 0 auto;
+}
+
+.author-container {
+display: flex;
+gap: 1rem;
+padding: 1.5rem;
+}
+
+.author-image {
+width: 120px;
+height: 120px;
+object-fit: cover;
+}
+
+.author-info h4 {
+margin: 0;
+font-size: 1.5rem;
+}
+
+.author-info .social-links a {
+margin-right: 0.5rem;
+font-size: 1.25rem;
+color: #333;
+transition: color 0.3s ease;
+}
+
+.author-info .social-links a:hover {
+color: #0056b3; /* Sesuaikan warna sesuai tema */
+}
+
+/* Tambahkan text-align: justify pada paragraf */
+.author-info p {
+margin-top: 0.5rem;
+line-height: 1.6;
+text-align: justify;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.author-container {
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.author-image {
+width: 100px;
+height: 100px;
+}
+
+.author-info h4 {
+font-size: 1.3rem;
+}
+
+.author-info p {
+font-size: 1rem;
+}
+}
+
+@media (max-width: 480px) {
+.author-image {
+width: 80px;
+height: 80px;
+}
+
+.author-info h4 {
+font-size: 1.1rem;
+}
+
+.author-info p {
+font-size: 0.9rem;
+}
+
+.author-info .social-links a {
+font-size: 1rem;
+}
+}
+/* General Styling */
+#blog-details .container {
+max-width: 800px;
+margin: 0 auto;
+padding: 1rem;
+}
+
+.article {
+margin-top: 2rem;
+}
+
+.post-img img {
+width: 100%;
+height: auto;
+border-radius: 8px;
+}
+
+.title {
+font-size: 2rem;
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
+.meta-top ul {
+display: flex;
+gap: 1rem;
+list-style: none;
+padding: 0;
+margin-bottom: 1.5rem;
+}
+
+.meta-top ul li i {
+margin-right: 0.5rem;
+}
+
+.content p {
+line-height: 1.6;
+text-align: justify;
+margin-top: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.title {
+font-size: 1.5rem;
+text-align: center;
+}
+
+.meta-top ul {
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+}
+
+.content img {
+width: 100%;
+margin-top: 1rem;
+border-radius: 8px;
+}
+
+.content h3 {
+font-size: 1.25rem;
+margin-top: 1.5rem;
+}
+
+.content p {
+font-size: 0.95rem;
+}
+}
+
+@media (max-width: 480px) {
+.title {
+font-size: 1.3rem;
+}
+
+.content h3 {
+font-size: 1.1rem;
+}
+
+.content p {
+font-size: 0.9rem;
+}
+
+.meta-top ul li {
+font-size: 0.85rem;
+}
+}
+
+.recent-posts-widget {
+width: 100%;
+padding: 1rem;
+}
+
+.recent-posts-widget .post-item {
+display: flex;
+align-items: center;
+margin-bottom: 1rem;
+}
+
+.recent-posts-widget .post-item img {
+width: 60px; /* Ukuran gambar tetap kecil */
+height: 60px;
+margin-right: 1rem;
+object-fit: cover; /* Agar gambar tidak peang dan tetap proporsional */
+border-radius: 5px;
+}
+
+.recent-posts-widget .post-item div {
+flex: 1;
+}
+
+.recent-posts-widget .post-item h4 {
+font-size: 1rem;
+margin: 0;
+}
+
+.recent-posts-widget .post-item time {
+font-size: 0.85rem;
+color: #666;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+.recent-posts-widget .post-item {
+flex-direction: row; /* Tetap dalam row */
+align-items: center;
+}
+
+.recent-posts-widget .post-item img {
+width: 50px; /* Ukuran lebih kecil pada layar kecil */
+height: 50px;
+}
+
+.recent-posts-widget .post-item h4 {
+font-size: 0.9rem;
+}
+
+.recent-posts-widget .post-item time {
+font-size: 0.75rem;
+}
+}
+.footer-top {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+text-align: left;
+}
+
+.footer-about,
+.footer-contact,
+.footer-social {
+max-width: 100%;
+}
+
+.social-links a {
+margin-right: 10px;
+font-size: 18px;
+color: #333;
+transition: color 0.3s;
+}
+
+.social-links a:hover {
+color: #007bff; /* Warna hover untuk icon sosial media */
+}
+
+@media (max-width: 768px) {
+.footer-top {
+flex-direction: column;
+align-items: center;
+text-align: center;
+}
+
+.footer-about,
+.footer-contact,
+.footer-social {
+margin-bottom: 1rem;
+}
+
+.social-links {
+justify-content: center;
+}
+}
+.footer-about {
+text-align:justify  ;
+}
+
+
+
+</style>
+
+<body class="blog-details-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Menambahkan logo gambar di samping -->
+        <img src="BT ENGINEE TRANNSPARANT.png" alt="BT Enginee Logo" class="logo-image" style="width: 8  0px; height: 150px; margin-right: 10px;">
+        <h1 class="sitename">BT Enginee</h1><span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero" >Beranda</a></li>
+          <li><a href="index.html#team">Tim</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+  
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>BRI BERPERAN AKTIF MENDUKUNG UMKM DAN UMI</h1>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>
+        /* CSS Internal */
+        nav.breadcrumbs ol li a {
+            color: gray; /* Default color abu-abu untuk semua link */
+        }
+
+        nav.breadcrumbs ol li:last-child a {
+            color: rgb(223, 46, 6); /* Ubah warna Blog Details jadi oranye */
+        }
+    </style>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="#">Blog Details</a></li>
+            
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-8">
+
+          <!-- Blog Details Section -->
+          <section id="blog-details" class="blog-details section">
+            <div class="container">
+
+              <article class="article">
+
+                <div class="post-img">
+                  <img src="Mando1.jpg" alt="" class="img-fluid">
+                </div>
+
+                <h2 class="title">Agen Brilink menjadi solusi praktis bagi UMKM di Dolok Pardamean untuk 
+                    mengakses layanan perbankan tanpa perlu ke kantor cabang. Dengan layanan ini, pelaku usaha kecil
+                     dapat melakukan transaksi 
+                    keuangan sehari-hari yang memudahkan operasional bisnis mereka.</h2>
+
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details-mando01.html">Mando Ranjeki Malau</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details-mando01.html"><time datetime="2024-11-13">13 Nov, 2024</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="https://jateng.antaranews.com/berita/489681/kian-mudah-nasabah-bank-raya-bisa-setor-dan-tarik-tunai-di-agen-brilink">Image dari Jateng.Antaranews.com  </a></li>
+                  </ul>
+                </div><!-- End meta top -->
+
+                <div class="content">
+                  <p>
+                    Bagi pelaku usaha mikro, kecil, dan menengah (UMKM) di daerah-daerah terpencil, salah satu tantangan 
+                    terbesar dalam menjalankan bisnis adalah keterbatasan akses ke layanan perbankan. Di kawasan seperti 
+                    Dolok Pardamean, yang mungkin jauh dari pusat kota dan kantor cabang bank, kebutuhan untuk melakukan 
+                    transaksi keuangan sering kali menjadi kendala
+                    . Namun, dengan adanya Agen Brilink, masalah tersebut kini dapat diatasi dengan mudah dan praktis. </p>
+
+                <div style="text-align: justify;">
+                    Agen Brilink, sebuah layanan yang disediakan oleh Bank Rakyat Indonesia (BRI), memungkinkan 
+                    masyarakat—termasuk pelaku UMKM—untuk mengakses layanan perbankan tanpa harus pergi ke kantor cabang.
+                     Ini menjadi solusi penting bagi UMKM di Dolok Pardamean yang sebelumnya kesulitan untuk melakukan transaksi 
+                     perbankan karena jarak yang jauh atau keterbatasan akses.</div>
+                
+                     <blockquote>
+                        <p>
+                            Apa itu Agen Brilink?
+                        </p>
+                      </blockquote>
+                  <p>
+                    Agen Brilink adalah layanan yang memungkinkan agen atau individu untuk menyediakan berbagai 
+                    layanan perbankan di luar kantor cabang bank. Dengan bekerjasama dengan BRI, agen-agen Brilink
+                     di Dolok Pardamean dapat menyediakan layanan seperti setor tunai, tarik tunai, transfer 
+                     antarbank, pembayaran tagihan, pembelian pulsa, hingga pengecekan saldo. Semua layanan ini
+                      dapat diakses tanpa harus mengunjungi kantor cabang bank, cukup dengan datang ke agen yang
+                       telah bekerja sama dengan BRI.</p>
+                       
+                  <h3>Keuntungan bagi UMKM di Dolok Pardamean</h3>
+                    <p>Bagi pelaku UMKM di Dolok Pardamean, Agen Brilink menawarkan sejumlah keuntungan yang sangat
+                         bermanfaat dalam mendukung kelancaran operasional bisnis mereka. Berikut adalah beberapa alasan
+                          mengapa Agen Brilink menjadi solusi praktis</p>
+
+                          <h4>1. Akses Layanan Perbankan yang Lebih Dekat</h4 >
+                            <p>
+                              Dengan keberadaan agen-agen Brilink di daerah tersebut, pelaku UMKM tidak perlu lagi menempuh perjalanan jauh untuk melakukan transaksi perbankan. 
+                              Agen Brilink hadir di lokasi-lokasi yang lebih dekat dengan pusat kegiatan usaha, 
+                              seperti warung, toko, atau tempat umum lainnya, memudahkan pelaku UMKM untuk melakukan transaksi kapan saja tanpa hambatan.
+                          </p>
+                          <h4>2. Efisiensi Waktu dan Biaya</h4 >
+                              <p>
+                                  Keberadaan agen perbankan yang lebih dekat memungkinkan pelaku usaha untuk menghemat waktu dan biaya. Sebelumnya,
+                                   jika mereka harus ke kantor cabang, perjalanan panjang bisa memakan waktu berjam-jam dan tentu saja biaya transportasi yang tidak sedikit. 
+                                   Dengan Agen Brilink, UMKM bisa melakukan transaksi keuangan
+                                   tanpa meninggalkan tempat usaha mereka. Hal ini tentu akan meningkatkan produktivitas bisnis karena pengusaha dapat lebih fokus menjalankan operasional usaha mereka.
+                            </p>
+          
+                            <h4>3. Layanan Perbankan yang Lengkap</h4 >
+                              <p>
+                                  Agen Brilink tidak hanya menyediakan layanan setor dan tarik tunai, tetapi juga memungkinkan pelaku UMKM untuk melakukan berbagai transaksi penting lainnya.
+                                   Mulai dari transfer antarbank, pembayaran tagihan, hingga pembelian pulsa dan voucher. Semua layanan ini membantu 
+                                  pelaku usaha untuk menjalankan bisnis mereka dengan lebih efisien dan cepat, tanpa harus repot pergi ke bank atau menggunakan layanan perantara lainnya.</p>
+                          <h4>4. Mendukung Arus Kas yang Lebih Lancar</h4 >
+                          <p>
+                              Transaksi keuangan yang lebih mudah diakses juga berperan penting dalam membantu pelaku UMKM mengelola arus kas mereka. 
+                              Pengusaha kecil yang sebelumnya kesulitan melakukan setor tunai atau tarik tunai karena keterbatasan akses, kini bisa dengan
+                               mudah menyetorkan uang atau menarik tunai langsung di agen terdekat.
+                               Dengan demikian, operasional bisnis mereka jadi lebih lancar dan terhindar dari hambatan finansial.
+                          </p>
+                          <h4>5. Inklusi Keuangan untuk Semua</h4 >
+                              <p>
+                                  Salah satu tujuan utama dari Agen Brilink adalah untuk meningkatkan inklusi keuangan di Indonesia. Dengan banyaknya agen yang tersebar di seluruh wilayah, 
+                                  termasuk Dolok Pardamean, lebih banyak orang dapat mengakses layanan perbankan. Ini sangat penting bagi masyarakat
+                                   yang sebelumnya mungkin tidak bisa mengakses bank secara langsung karena lokasi yang terpencil atau kurangnya fasilitas perbankan di daerah mereka.
+                              </p>
+          
+                              <blockquote>
+                                  <p>
+                                      Dampak Positif Bagi Ekonomi Lokal
+                                  </p>
+                                </blockquote>
+              
+                                <p>
+                                  Tidak hanya membantu pelaku UMKM, keberadaan Agen Brilink juga dapat membawa dampak positif bagi perekonomian lokal.
+                                   Para agen yang menjadi mitra BRI akan memperoleh penghasilan tambahan dari komisi transaksi, yang tentunya dapat meningkatkan daya beli dan ekonomi
+                                   di wilayah tersebut. Hal ini membuka peluang usaha baru bagi masyarakat setempat, serta memberi manfaat bagi perekonomian lokal secara keseluruhan. </p>
+              
+                          </div><!-- End post content -->
+
+              </article>
+
+            </div>
+          </section><!-- /Blog Details Section -->
+
+       <!-- Blog Author Section -->
+<section id="blog-author" class="blog-author section">
+<div class="container">
+<div class="author-container d-flex align-items-center">
+  <img src="mandoo.png" class="rounded-circle flex-shrink-0 author-image" alt="">
+  <div class="author-info">
+    <h4>Mando Ranjeki Malau</h4>
+    <div class="social-links">
+      <a href="https://www.instagram.com/mando_ryzo/profilecard/?igsh=MTF1bmdvNTZ0anV1MQ=="><i class="bi bi-twitter-x"></i></a>
+      <a href="https://www.instagram.com/mando_ryzo/profilecard/?igsh=MTF1bmdvNTZ0anV1MQ=="><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com/mando_ryzo/profilecard/?igsh=MTF1bmdvNTZ0anV1MQ=="><i class="bi bi-instagram"></i></a>
+    </div>
+    <p>
+        Agen BRILink menjadi solusi praktis bagi UMKM di Dolok Pardamean untuk mengakses layanan perbankan tanpa 
+        harus pergi ke kantor cabang. Dengan kemudahan ini, pelaku usaha kecil dapat melakukan transaksi keuangan 
+        harian seperti transfer, pembayaran, dan penarikan uang secara efisien. Hal ini tentu memudahkan operasional
+         bisnis mereka, menghemat waktu, dan biaya perjalanan. Kehadiran BRILink juga berperan penting dalam mendorong
+          inklusi keuangan, terutama di daerah yang memiliki keterbatasan akses ke layanan perbankan, 
+        sehingga membantu UMKM berkembang lebih baik. </p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Comment Form -->
+<section id="comment-form" class="comment-form section">
+<div class="container">
+  <h3>Post a Comment</h3>
+  <form method="post" action="mailto:jhodysaragih49@gmail.com" enctype="text/plain">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <textarea id="comment" name="comment" class="form-control" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Post Comment</button>
+  </form>
+</div>
+</section><!-- End Comment Form -->
+
+
+
+        </div>
+
+        <div class="col-lg-4 sidebar">
+
+          <div class="widgets-container">
+
+            <!-- Search Widget -->
+          
+            <!-- Recent Posts Widget -->
+            <div class="recent-posts-widget widget-item">
+
+              <h3 class="widget-title">Artikel Terbaru</h3>
+
+              <div class="post-item">
+                <img src="umkm1.webp" alt="" class="flex-shrink-0">
+                <div>
+                  <h4><a href="blog_details_metcyu.html">Pemberdayaan UMKM dan UMI Mendorong Ekonomi Kreatif di Indonesia</a></h4>
+                  <time datetime="2024-11-01">01 November, 2024</time>
+                </div>
+              </div><!-- End recent post item-->
+
+              <div class="post-item">
+                <img src="Mando1.jpg" alt="" class="flex-shrink-0">
+                <div>
+                  <h4><a href="blog-detail-mando01.html">Brilink Membawa Layanan Keuangan ke UMKM di Kecamatan Dolok Pardamean</a></h4>
+                  <time datetime="2024-11-13">13 November, 2024</time>
+                </div>
+                
+              </div><!-- End recent post item-->
+              <div class="post-item">
+                <img src="Timnas Indonesia.jpg" alt="" class="flex-shrink-0">
+                <div>
+                  <h4><a href="blog_details_makmur.html">BRI sebagai Pendorong Sepak Bola Indonesia </a></h4>
+                  <time datetime="2024-11-03">03 November, 2024</time>
+                </div>
+              </div><!-- End recent post item-->
+
+              <div class="post-item">
+                <img src="BRI-10-425837298.webps" alt="" class="flex-shrink-0">
+                <div>
+                  <h4><a href="blog-details-indah.html">BRI Menjangkau Desa Mewujudkan Masa Depan melalui Inklusi Keuangan</a></h4>
+                  <time datetime="2020-01-01">5 November, 2024</time>
+                </div>
+              </div><!-- End recent post item-->
+
+
+            </div><!--/Recent Posts Widget -->
+
+            <!-- Tags Widget -->
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        
+        <div class="col-lg-5 col-md-12 footer-about">
+          <h4>BRI LINK</h4>
+          <p>Tidak hanya membantu pelaku UMKM, keberadaan Agen Brilink juga dapat membawa dampak positif bagi 
+            perekonomian lokal. Para agen yang menjadi mitra BRI akan memperoleh penghasilan tambahan dari komisi transaksi, 
+            yang tentunya dapat meningkatkan daya beli dan ekonomi di wilayah tersebut. Hal ini membuka peluang usaha baru
+             bagi masyarakat setempat, 
+            serta memberi manfaat bagi perekonomian lokal secara keseluruhan.</p>
+        </div>
+  
+        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contact Us</h4>
+          <p>Jalan Sipahutar Keluranah, Sukaraja, Kec. Siantar Marihat</p>
+          <p>Kota Pematangsiantar</p>
+          <p>Sumatera Utara 21133</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+62813 3392 8250</span></p>
+          <p><strong>Email:</strong> <span>mandoranjeki@gmail.com</span></p>
+        </div>
+  
+        <div class="col-lg-4 col-md-12 footer-social text-center text-md-start">
+          <h4>Social Media</h4>
+          <div class="social-links d-flex">
+            <a href="https://www.instagram.com/mando_ryzo/profilecard/?igsh=MTF1bmdvNTZ0anV1MQ=="><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.instagram.com/mando_ryzo/profilecard/?igsh=MTF1bmdvNTZ0anV1MQ=="><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/mando_ryzo/profilecard/?igsh=MTF1bmdvNTZ0anV1MQ==  "><i class="bi bi-instagram"></i></a>
+            <a href="https://id.linkedin.com/in/mando-ranjeki-b1b866329"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="sitename">Bt Enginee</strong> <span>All Rights Reserved</span></p>
+      <div class="credits"></div>
+    </div>
+  </footer>
+  
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File --> 
+  <script src="assets/js/main.js"></script>
+
+</body> 
+
+</html>
+

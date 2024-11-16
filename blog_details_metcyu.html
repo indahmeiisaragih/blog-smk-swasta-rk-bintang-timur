@@ -1,0 +1,579 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+
+      <!-- Favicons -->
+      <link href="assets/img/favicon.png" rel="icon">
+      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+      <!-- Fonts -->
+      <link href="https://fonts.googleapis.com" rel="preconnect">
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+      <!-- Vendor CSS Files -->
+      <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+      <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+      <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+      <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+      <!-- Main CSS File -->
+      <link href="assets/css/main.css" rel="stylesheet">
+
+    </head>
+    <style>
+      /* Blog Author Section Styling */
+.blog-author .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.author-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.author-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.author-info h4 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.author-info .social-links a {
+  margin-right: 0.5rem;
+  font-size: 1.25rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.author-info .social-links a:hover {
+  color: #0056b3; /* Sesuaikan warna sesuai tema */
+}
+
+/* Tambahkan text-align: justify pada paragraf */
+.author-info p {
+  margin-top: 0.5rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .author-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .author-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .author-info h4 {
+    font-size: 1.3rem;
+  }
+  
+  .author-info p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .author-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .author-info h4 {
+    font-size: 1.1rem;
+  }
+  
+  .author-info p {
+    font-size: 0.9rem;
+  }
+  
+  .author-info .social-links a {
+    font-size: 1rem;
+  }
+}
+  /* General Styling */
+#blog-details .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.article {
+  margin-top: 2rem;
+}
+
+.post-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.title {
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.meta-top ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.meta-top ul li i {
+  margin-right: 0.5rem;
+}
+
+.content p {
+  line-height: 1.6;
+  text-align: justify;
+  margin-top: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .meta-top ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .content img {
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+
+  .content h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .content h3 {
+    font-size: 1.1rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  .meta-top ul li {
+    font-size: 0.85rem;
+  }
+}
+
+.recent-posts-widget {
+  width: 100%;
+  padding: 1rem;
+}
+
+.recent-posts-widget .post-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.recent-posts-widget .post-item img {
+  width: 60px; /* Ukuran gambar tetap kecil */
+  height: 60px;
+  margin-right: 1rem;
+  object-fit: cover; /* Agar gambar tidak peang dan tetap proporsional */
+  border-radius: 5px;
+}
+
+.recent-posts-widget .post-item div {
+  flex: 1;
+}
+
+.recent-posts-widget .post-item h4 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.recent-posts-widget .post-item time {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .recent-posts-widget .post-item {
+    flex-direction: row; /* Tetap dalam row */
+    align-items: center;
+  }
+
+  .recent-posts-widget .post-item img {
+    width: 50px; /* Ukuran lebih kecil pada layar kecil */
+    height: 50px;
+  }
+
+  .recent-posts-widget .post-item h4 {
+    font-size: 0.9rem;
+  }
+
+  .recent-posts-widget .post-item time {
+    font-size: 0.75rem;
+  }
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.footer-about,
+.footer-contact,
+.footer-social {
+  max-width: 100%;
+}
+
+.social-links a {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #007bff; /* Warna hover untuk icon sosial media */
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-about,
+  .footer-contact,
+  .footer-social {
+    margin-bottom: 1rem;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+.footer-about {
+  text-align:justify  ;
+}
+
+
+
+    </style>
+
+    <body class="blog-details-page">
+
+      <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+          <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+            <!-- Menambahkan logo gambar di samping -->
+            <img src="BT ENGINEE TRANNSPARANT.png" alt="BT Enginee Logo" class="logo-image" style="width: 8  0px; height: 150px; margin-right: 10px;">
+            <h1 class="sitename">BT Enginee</h1><span>.</span>
+          </a>
+
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="index.html#hero">Beranda</a></li>
+              <li><a href="index.html#team">Tim</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+
+      
+
+        </div>
+      </header>
+
+      <main class="main">
+
+        <!-- Page Title -->
+        <div class="page-title" data-aos="fade">
+          <div class="heading">
+            <div class="container">
+              <div class="row d-flex justify-content-center text-center">
+                <div class="col-lg-8">
+                  <h1>BRI MAJU BERSAMA</h1>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <style>
+            /* CSS Internal */
+            nav.breadcrumbs ol li a {
+                color: gray; /* Default color abu-abu untuk semua link */
+            }
+    
+            nav.breadcrumbs ol li:last-child a {
+                color: rgb(223, 46, 6); /* Ubah warna Blog Details jadi oranye */
+            }
+        </style>
+          <nav class="breadcrumbs">
+            <div class="container">
+              <ol>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="#">Blog Details</a></li>
+                
+              </ol>
+            </div>
+          </nav>
+        </div><!-- End Page Title -->
+
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-8">
+
+              <!-- Blog Details Section -->
+              <section id="blog-details" class="blog-details section">
+                <div class="container">
+
+                  <article class="article">
+
+                    <div class="post-img">
+                      <img src="umkm1.webp" alt="" class="img-fluid">
+                    </div>
+
+                    <h2 class="title">Pemberdayaan UMKM dan UMI Mendorong Ekonomi Kreatif di Indonesia</h2>
+
+                    <div class="meta-top">
+                      <ul>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog_details_metcyu.html">Metcyu Saragih</a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog_details_metcyu.html"><time datetime="2024-11-01">01 Nov, 2024</time></a></li>
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="https://www.cnnindonesia.com/ekonomi/20240917140642-625-1145193/bri-bagikan-5-strategi-untuk-dukung-kemajuan-umkm">Image dari cnnindonesia.com  </a></li>
+                      </ul>
+                    </div><!-- End meta top -->
+
+                    <div class="content">
+                      <p>
+                        Usaha Mikro, Kecil, dan Menengah (UMKM) memiliki peran yang sangat vital dalam perekonomian Indonesia. Sektor ini tidak hanya menjadi penyumbang signifikan terhadap Produk Domestik Bruto (PDB), tetapi juga berfungsi sebagai penyedia lapangan kerja bagi jutaan orang. Untuk mendorong pertumbuhan UMKM, Bank Rakyat Indonesia (BRI) berkomitmen untuk memberdayakan sektor ini melalui berbagai program yang dirancang untuk memenuhi kebutuhan pelaku usaha.
+                    </p>
+
+                    <div style="text-align: justify;">
+                      BRI menawarkan program Kredit Usaha Rakyat (KUR) yang memberikan akses pembiayaan dengan bunga terjangkau dan persyaratan yang lebih mudah. Program ini membantu pelaku UMKM mendapatkan modal yang dibutuhkan untuk memperluas usaha mereka. Selain itu, BRI juga mengadakan pelatihan manajemen bisnis yang bertujuan untuk meningkatkan keterampilan dan pengetahuan pelaku UMKM dalam mengelola usaha dengan lebih efisien.
+                    </div>
+                    
+                        
+
+                      <h3> Contoh Nyata Dari Dampak Positif Pemberdayaan UMKM dan UMI</h3>
+                      <p>
+                        Salah satu contoh nyata dari dampak positif pemberdayaan ini adalah kisah Indah Saragih, seorang pengusaha muda asal Desa Dolok Maraja di Simalungun. Indah memulai usaha keripik singkong secara tradisional dan menghadapi tantangan dalam hal modal serta pemasaran. Setelah bergabung dengan program KUR dari BRI, Indah berhasil mendapatkan dana untuk mengembangkan usahanya. Melalui pelatihan yang diikutinya, ia belajar tentang manajemen keuangan dan strategi pemasaran yang efektif. Kini, keripik singkongnya telah menjangkau pasar yang lebih luas, bukan hanya di desanya, tetapi juga di kota-kota terdekat.
+                        </p>
+                        <p>"Selain dukungan modal dan pelatihan, penyediaan layanan keuangan digital turut memperkuat pemberdayaan UMKM seperti usaha milik Indah. Melalui sistem pembayaran yang lebih mudah diakses, Indah dapat melakukan transaksi non-tunai dengan pelanggan dari berbagai daerah, meminimalisasi risiko terkait arus kas, serta meningkatkan efisiensi dalam pengelolaan keuangan usahanya."</p>
+
+                        <img src="umkm.jpg" class="img-fluid" alt="">
+                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="https://www.seputarmuria.com/kenalkan-metode-pembayaran-qris-di-masa-pandemi-melalui-bazaar-digital-umkm/">Image dari seputarmuria.com  </a></li>
+                      <h3>Dampak Positif Pemberdayaan UMKM Terhadap Ekonomi Lokal</h3>
+                      <p>Dampak dari pemberdayaan UMKM sangat terasa di tingkat lokal. Usaha Indah tidak hanya memberikan pendapatan bagi keluarganya, tetapi juga menciptakan lapangan kerja bagi tetangga dan warga sekitar. Dengan semakin banyaknya UMKM yang diberdayakan, ekonomi lokal di Dolok Maraja mengalami perkembangan yang positif. Masyarakat setempat merasakan peningkatan taraf hidup, dengan banyak yang kini memiliki penghasilan tambahan.</p>
+                      <p>Secara keseluruhan, pemberdayaan UMKM oleh BRI memberikan harapan bagi banyak pelaku usaha di Indonesia. Dengan dukungan yang tepat, semakin banyak UMKM seperti Indah Saragih dapat tumbuh dan berkembang, berkontribusi pada perekonomian lokal, dan menciptakan dampak positif bagi masyarakat. Semoga semakin banyak UMKM yang dapat mengakses bantuan dan layanan dari BRI, sehingga ekonomi kreatif di Indonesia semakin maju dan berdaya saing.</p>
+
+                    </div><!-- End post content -->
+
+                    
+
+                  </article>
+
+                </div>
+              </section><!-- /Blog Details Section -->
+
+           <!-- Blog Author Section -->
+<section id="blog-author" class="blog-author section">
+  <div class="container">
+    <div class="author-container d-flex align-items-center">
+      <img src="Jhody.jpeg" class="rounded-circle flex-shrink-0 author-image" alt="">
+      <div class="author-info">
+        <h4>Metcyu Saragih</h4>
+        <div class="social-links">
+          <a href="https://x.com/JhodySaragih?t=Ooh3cIcDw2wqcpRikrYsDQ&s=09&mx=2"><i class="bi bi-twitter-x"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61567686034267&mibextid=ZbWKwL"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/jhodyyz/profilecard/?igsh=MWcwbzhmdTVjN2p4dg%3D%3D"><i class="bi bi-instagram"></i></a>
+        </div>
+        <p>
+          Pemberdayaan UMKM melalui program seperti KUR dari BRI terbukti mampu mendorong pertumbuhan ekonomi lokal dan meningkatkan kesejahteraan masyarakat. Dengan dukungan modal dan pelatihan, UMKM dapat berkembang lebih pesat, menciptakan lapangan kerja, serta berkontribusi signifikan pada perekonomian Indonesia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Comment Form -->
+  <section id="comment-form" class="comment-form section">
+    <div class="container">
+      <h3>Post a Comment</h3>
+      <form method="post" action="mailto:jhodysaragih49@gmail.com" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea id="comment" name="comment" class="form-control" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Post Comment</button>
+      </form>
+    </div>
+  </section><!-- End Comment Form -->
+
+
+
+            </div>
+
+            <div class="col-lg-4 sidebar">
+
+              <div class="widgets-container">
+
+                <!-- Search Widget -->
+              
+                <!-- Recent Posts Widget -->
+                <div class="recent-posts-widget widget-item">
+
+                  <h3 class="widget-title">Artikel Terbaru</h3>
+
+                  <div class="post-item">
+                    <img src="Mando1.jpg" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="blog-detail-mando01.html">Brilink Membawa Layanan Keuangan ke UMKM di Kecamatan Dolok Pardamean</a></h4>
+                      <time datetime="2024-11-13">13 November, 2024</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="umkm1.webp" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="blog_details_metcyu.html">Pemberdayaan UMKM dan UMI Mendorong Ekonomi Kreatif di Indonesia</a></h4>
+                      <time datetime="2024-11-01">01 November, 2024</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="Timnas Indonesia.jpg" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="blog_details_makmur.html">BRI sebagai Pendorong Sepak Bola Indonesia </a></h4>
+                      <time datetime="2024-11-03">03 November, 2024</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+                  <div class="post-item">
+                    <img src="BRI-10-425837298.webp" alt="" class="flex-shrink-0">
+                    <div>
+                      <h4><a href="blog-details-indah.html">BRI Menjangkau Desa Mewujudkan Masa Depan melalui Inklusi Keuangan</a></h4>
+                      <time datetime="2020-01-01">05 November, 2024</time>
+                    </div>
+                  </div><!-- End recent post item-->
+
+
+                </div><!--/Recent Posts Widget -->
+
+                <!-- Tags Widget -->
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+
+      <footer id="footer" class="footer position-relative light-background">
+        <div class="container footer-top">
+          <div class="row gy-4">
+            
+            <div class="col-lg-5 col-md-12 footer-about">
+              <h4>BRI LINK</h4>
+              <p>Brilink memberikan dampak signifikan di Kecamatan Dolok Pardamean. Dengan kemudahan akses KUR, dukungan digital melalui Brimo, dan agen Brilink yang berada di komunitas, BRI berhasil menciptakan ekosistem yang memperkuat ekonomi lokal dan memberdayakan pelaku usaha kecil. Kehadiran Brilink memberikan solusi nyata dalam meningkatkan kesejahteraan masyarakat dan memperkokoh perekonomian di Dolok Pardamean, membuktikan bahwa inklusi keuangan mampu menjadi fondasi kuat dalam pembangunan ekonomi wilayah terpencil.
+              </p>
+            </div>
+      
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+              <h4>Contact Us</h4>
+              <p>Jalan Sipahutar Keluranah, Sukaraja, Kec. Siantar Marihat</p>
+              <p>Kota Pematangsiantar</p>
+              <p>Sumatera Utara 21133</p>
+              <p class="mt-4"><strong>Phone:</strong> <span>+62 838 9331 6358</span></p>
+              <p><strong>Email:</strong> <span>jhodysaragih49@gmail.com</span></p>
+            </div>
+      
+            <div class="col-lg-4 col-md-12 footer-social text-center text-md-start">
+              <h4>Social Media</h4>
+              <div class="social-links d-flex">
+                <a href="https://x.com/JhodySaragih?t=Ooh3cIcDw2wqcpRikrYsDQ&s=09&mx=2"><i class="bi bi-twitter-x"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61567686034267&mibextid=ZbWKwL"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/jhodyyz/profilecard/?igsh=MWcwbzhmdTVjN2p4dg%3D%3D"><i class="bi bi-instagram"></i></a>
+                <a href="https://id.linkedin.com/in/jhody-saragih-2227a9338"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      
+        <div class="container copyright text-center mt-4">
+          <p>© <span>Copyright</span> <strong class="sitename">Bt Enginee</strong> <span>All Rights Reserved</span></p>
+          <div class="credits"></div>
+        </div>
+      </footer>
+      
+
+      <!-- Scroll Top -->
+      <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+      <!-- Preloader -->
+      <div id="preloader"></div>
+
+      <!-- Vendor JS Files -->
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/vendor/php-email-form/validate.js"></script>
+      <script src="assets/vendor/aos/aos.js"></script>
+      <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+      <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+      <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+      <!-- Main JS File --> 
+      <script src="assets/js/main.js"></script>
+
+    </body> 
+
+    </html>
+

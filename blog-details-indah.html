@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+  </head>
+  <style>
+    /* Blog Author Section Styling */
+    .blog-author .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .author-container {
+      display: flex;
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+
+    .author-image {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .author-info .social-links a {
+      margin-right: 0.5rem;
+      font-size: 1.25rem;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .author-info .social-links a:hover {
+      color: #0056b3; /* Sesuaikan warna sesuai tema */
+    }
+
+    /* Tambahkan text-align: justify pada paragraf */
+    .author-info p {
+      margin-top: 0.5rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .author-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .author-image {
+        width: 100px;
+        height: 100px;
+      }
+
+      .author-info h4 {
+        font-size: 1.3rem;
+      }
+
+      .author-info p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .author-image {
+        width: 80px;
+        height: 80px;
+      }
+
+      .author-info h4 {
+        font-size: 1.1rem;
+      }
+
+      .author-info p {
+        font-size: 0.9rem;
+      }
+
+      .author-info .social-links a {
+        font-size: 1rem;
+      }
+    }
+    /* General Styling */
+    #blog-details .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .article {
+      margin-top: 2rem;
+    }
+
+    .post-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .title {
+      font-size: 2rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .meta-top ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-top ul li i {
+      margin-right: 0.5rem;
+    }
+
+    .content p {
+      line-height: 1.6;
+      text-align: justify;
+      margin-top: 0.5rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .meta-top ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .content img {
+        width: 100%;
+        margin-top: 1rem;
+        border-radius: 8px;
+      }
+
+      .content h3 {
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+      }
+
+      .content p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .title {
+        font-size: 1.3rem;
+      }
+
+      .content h3 {
+        font-size: 1.1rem;
+      }
+
+      .content p {
+        font-size: 0.9rem;
+      }
+
+      .meta-top ul li {
+        font-size: 0.85rem;
+      }
+    }
+
+    .recent-posts-widget {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .recent-posts-widget .post-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .recent-posts-widget .post-item img {
+      width: 60px; /* Ukuran gambar tetap kecil */
+      height: 60px;
+      margin-right: 1rem;
+      object-fit: cover; /* Agar gambar tidak peang dan tetap proporsional */
+      border-radius: 5px;
+    }
+
+    .recent-posts-widget .post-item div {
+      flex: 1;
+    }
+
+    .recent-posts-widget .post-item h4 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .recent-posts-widget .post-item time {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .recent-posts-widget .post-item {
+        flex-direction: row; /* Tetap dalam row */
+        align-items: center;
+      }
+
+      .recent-posts-widget .post-item img {
+        width: 50px; /* Ukuran lebih kecil pada layar kecil */
+        height: 50px;
+      }
+
+      .recent-posts-widget .post-item h4 {
+        font-size: 0.9rem;
+      }
+
+      .recent-posts-widget .post-item time {
+        font-size: 0.75rem;
+      }
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+
+    .footer-about,
+    .footer-contact,
+    .footer-social {
+      max-width: 100%;
+    }
+
+    .social-links a {
+      margin-right: 10px;
+      font-size: 18px;
+      color: #333;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #007bff; /* Warna hover untuk icon sosial media */
+    }
+
+    @media (max-width: 768px) {
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-about,
+      .footer-contact,
+      .footer-social {
+        margin-bottom: 1rem;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+    .footer-about {
+      text-align: justify;
+    }
+     /* CSS Internal */
+     nav.breadcrumbs ol li a {
+            color: gray; /* Default color abu-abu untuk semua link */
+        }
+
+        nav.breadcrumbs ol li:last-child a {
+            color: rgb(223, 46, 6); /* Ubah warna Blog Details jadi oranye */
+        }
+  </style>
+
+  <body class="blog-details-page">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Menambahkan logo gambar di samping -->
+        <img src="BT ENGINEE TRANNSPARANT.png" alt="BT Enginee Logo" class="logo-image" style="width: 8  0px; height: 150px; margin-right: 10px;">
+        <h1 class="sitename">BT Enginee</h1><span>.</span>
+      </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html#hero" >Beranda</a></li>
+            <li><a href="index.html#team">Tim</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Page Title -->
+      <div class="page-title" data-aos="fade">
+        <div class="heading">
+          <div class="container">
+            <div class="row d-flex justify-content-center text-center">
+              <div class="col-lg-8">
+                <h1>BRI MAJU BERSAMA</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="breadcrumbs">
+          <div class="container">
+            <ol>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="#">Blog Details</a></li>
+              
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Page Title -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <!-- Blog Details Section -->
+            <section id="blog-details" class="blog-details section">
+              <div class="container">
+                <article class="article">
+                  <div class="post-img">
+                    <img src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/207/2024/10/15/BRI-10-425837298.jpeg" alt="" class="img-fluid" />
+                  </div>
+
+                  <h2 class="title">BRI Menjangkau Desa Menghubungkan Harapan, Mewujudkan Masa Depan dengan Inklusi Keuangan</h2>
+
+                  <div class="meta-top">
+                    <ul>
+                      <li class="d-flex align-items-center">
+                        <i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2024-11-01">05 November, 2024</time></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- End meta top -->
+
+                  <div class="content">
+                    <h3>Mengatasi Kesenjangan Keuangan dengan BRI Cerita Inklusi Keuangan di Pedesaan</h3>
+                    <p>
+                      Di sebuah desa kecil di pelosok Indonesia, Ibu Rina adalah seorang ibu rumah tangga yang sehari-harinya membantu suaminya mengelola kebun kecil mereka. Dari hasil kebun tersebut, keluarga ini mencukupi kebutuhan
+                      sehari-hari dan menabung sedikit demi sedikit untuk masa depan anak-anak mereka. Tantangan utama yang dihadapi Ibu Rina dan suaminya adalah bagaimana mengirim uang kepada anak mereka, Andi, yang sedang berkuliah di
+                      kota. Setiap bulan, mereka ingin memastikan Andi memiliki cukup uang untuk kebutuhan hidup dan biaya kuliah.
+                    </p>
+
+                    <div style="text-align: justify">
+                      Namun, bagi Ibu Rina, mengirim uang bukanlah hal yang mudah. Untuk pergi ke kota terdekat, ia harus menempuh perjalanan yang cukup jauh, melalui jalanan yang sempit dan sering rusak. Biaya transportasi yang mahal
+                      membuatnya sering menunda pengiriman uang atau bahkan mengirim dalam jumlah yang lebih kecil. Hal ini membuat Andi harus pintar mengelola keuangannya di kota.
+                    </div>
+
+                    <h3>BRI dan BRILink: Solusi untuk Keterbatasan Akses Keuangan</h3>
+                    <p>
+                      Situasi ini berubah ketika BRI memperkenalkan program inklusi keuangan di desa tempat tinggal Ibu Rina. BRI membuka akses layanan perbankan melalui agen BRILink, yaitu mitra resmi BRI yang tinggal di desa dan
+                      menyediakan berbagai layanan perbankan dasar. Kini, tanpa harus pergi ke kota, Ibu Rina bisa langsung mengirim uang kepada Andi melalui agen BRILink di desanya. Prosesnya sangat sederhana: cukup menyerahkan uang tunai
+                      dan nomor rekening Andi, agen BRILink akan langsung mengirimkan uang tersebut secara real-time, dan dalam hitungan menit, Andi sudah menerima uang di rekeningnya.
+                    </p>
+                    <p>
+                      Selain memudahkan pengiriman uang, agen BRILink juga membuka akses ke layanan perbankan lain bagi Ibu Rina. Sekarang, ia dapat menabung sebagian dari hasil kebun mereka secara teratur. Tabungan ini akan sangat
+                      bermanfaat untuk kebutuhan mendesak atau biaya tambahan pendidikan Andi. Ibu Rina dan suaminya juga bisa membayar tagihan listrik dan pulsa telepon langsung melalui agen BRILink tanpa harus jauh-jauh pergi ke kota.
+                    </p>
+
+                    <img src="https://awsimages.detik.net.id/visual/2021/03/17/dok-bri-2_169.jpeg?w=715&q=90" class="img-fluid" alt="" />
+                    <h3>Pentingnya Inklusi Keuangan di Pedesaan</h3>
+                    <p>
+                      Program Layanan Inklusif & Inklusi Keuangan BRI bertujuan untuk menjangkau masyarakat yang belum terlayani perbankan formal. Di pedesaan, masih banyak masyarakat yang belum memiliki akses layanan keuangan karena lokasi
+                      geografis yang terpencil atau keterbatasan infrastruktur. Dengan adanya agen BRILink, masyarakat desa kini bisa menikmati layanan perbankan yang sama seperti di perkotaan.
+                    </p>
+                    <p>
+                      Inklusi keuangan ini tidak hanya menguntungkan keluarga, tetapi juga komunitas secara keseluruhan. Ketika masyarakat desa memiliki akses ke layanan keuangan, mereka lebih mampu mengelola keuangan pribadi, menghindari
+                      risiko yang tak terduga, dan merencanakan masa depan dengan lebih baik. Misalnya, petani seperti Ibu Rina dan suaminya kini dapat menyimpan sebagian hasil panen mereka di bank, yang akan sangat bermanfaat ketika musim
+                      panen berakhir atau harga komoditas turun.
+                    </p>
+                    <h3>Layanan BRI yang Mendukung Pertumbuhan Ekonomi Pedesaan</h3>
+                    <p>
+                      Selain layanan pengiriman uang dan tabungan mikro, BRI juga menyediakan Kredit Usaha Rakyat (KUR) untuk membantu masyarakat pedesaan mengembangkan usaha mereka. Ibu Rina dan suaminya bahkan berencana untuk mengajukan
+                      pinjaman kecil melalui KUR agar bisa membeli bibit dan alat pertanian yang lebih baik. Dengan perbaikan alat, hasil panen mereka diharapkan meningkat, sehingga pendapatan keluarga juga meningkat.
+                    </p>
+                    <p>
+                      Tidak hanya menyediakan layanan keuangan, BRI juga memberikan edukasi finansial kepada masyarakat pedesaan. Melalui program literasi keuangan, BRI membantu masyarakat memahami pentingnya menabung, mengatur pengeluaran,
+                      dan memanfaatkan layanan perbankan dengan bijak. Dengan pengetahuan ini, masyarakat desa seperti Ibu Rina dan suaminya bisa lebih percaya diri dalam mengambil keputusan keuangan yang bijaksana.
+                    </p>
+                    <h3>Dampak Jangka Panjang dari Inklusi Keuangan</h3>
+                    <p>
+                      Dengan adanya akses ke layanan keuangan yang lebih mudah, kehidupan Ibu Rina, suami, dan masyarakat pedesaan lainnya menjadi lebih stabil dan terjamin. Bagi Andi, layanan ini menjadi penopang penting dalam kelangsungan
+                      studinya di kota, tanpa perlu khawatir tentang keterlambatan dana dari orang tuanya. Kini, ia bisa lebih fokus belajar dan meraih cita-citanya tanpa terbebani masalah keuangan.
+                    </p>
+                    <p>
+                      Keberhasilan program inklusi keuangan BRI berdampak pada pertumbuhan ekonomi lokal. Dengan semakin banyaknya masyarakat yang menggunakan layanan perbankan formal, ekonomi di pedesaan mulai bergerak lebih cepat.
+                      Masyarakat dapat mengakses pinjaman untuk mengembangkan usaha, menyimpan uang dengan aman, dan melakukan pembayaran digital, yang semuanya berkontribusi pada peningkatan kualitas hidup di pedesaan dan mengurangi
+                      kesenjangan ekonomi antara desa dan kota.
+                    </p>
+
+                    <img src="https://media.suara.com/pictures/970x544/2022/03/13/46286-agen-brilink.jpg" class="img-fluid" alt="" />
+                    <h3>Kesimpulan: Masa Depan Inklusi Keuangan</h3>
+                    <p>
+                      Layanan Inklusif & Inklusi Keuangan BRI adalah langkah besar dalam menghadirkan layanan perbankan ke seluruh lapisan masyarakat, termasuk di daerah terpencil. Melalui agen BRILink, produk tabungan mikro, KUR, dan
+                      edukasi finansial, BRI telah membuka akses yang lebih luas bagi masyarakat pedesaan untuk terlibat dalam ekonomi formal dan meraih kehidupan yang lebih baik.
+                    </p>
+                    <p>
+                      Cerita Ibu Rina dan keluarganya adalah salah satu contoh nyata bagaimana inklusi keuangan mampu mengubah kehidupan masyarakat. Dengan komitmen BRI untuk memperluas layanan perbankan, semakin banyak masyarakat yang bisa
+                      merasakan manfaat dari inklusi keuangan ini, memperbaiki taraf hidup mereka, dan membangun masa depan yang lebih cerah.
+                    </p>
+                  </div>
+                  <!-- End post content -->
+                </article>
+              </div>
+            </section>
+            <!-- /Blog Details Section -->
+
+            <!-- Blog Author Section -->
+            <section id="blog-author" class="blog-author section">
+              <div class="container">
+                <div class="author-container d-flex align-items-center">
+                  <img src="indah.jpg" class="rounded-circle flex-shrink-0 author-image" alt="" />
+                  <div class="author-info">
+                    <h4>Indah Saragih</h4>
+                    <div class="social-links">
+                      <a href="https://www.instagram.com/indahhsrghh_/#"><i class="bi bi-instagram"></i></a>
+                    </div>
+                    <p>
+                      BRI sangat membantu masyarakat desa dengan menghadirkan layanan keuangan yang mudah diakses melalui agen BRILink, sehingga mereka dapat memenuhi kebutuhan tanpa harus jauh ke kota dan merencanakan masa depan dengan
+                      lebih baik.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Comment Form -->
+            <section id="comment-form" class="comment-form section">
+              <div class="container">
+                <h3>Post a Comment</h3>
+                <form method="post" action="mailto:jhodysaragih49@gmail.com" enctype="text/plain">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea id="comment" name="comment" class="form-control" rows="5" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Post Comment</button>
+                </form>
+              </div>
+            </section>
+            <!-- End Comment Form -->
+          </div>
+
+          <div class="col-lg-4 sidebar">
+            <div class="widgets-container">
+              <!-- Search Widget -->
+
+              <!-- Recent Posts Widget -->
+              <div class="recent-posts-widget widget-item">
+                <h3 class="widget-title">Artikel Terbaru</h3>
+
+                <div class="post-item">
+                  <img src="Mando1.jpg" alt="" class="flex-shrink-0" />
+                  <div>
+                    <h4><a href="blog-detail-mando01.html">Brilink Membawa Layanan Keuangan ke UMKM di Kecamatan Dolok Pardamean</a></h4>
+                    <time datetime="2020-01-01">13 November, 2024</time>
+                  </div>
+                </div>
+                <!-- End recent post item-->
+
+                <div class="post-item">
+                  <img src="umkm1.webp" alt="" class="flex-shrink-0" />
+                  <div>
+                    <h4><a href="blog_details_metcyu.html">Pemberdayaan UMKM dan UMI Mendorong Ekonomi Kreatif di Indonesia</a></h4>
+                    <time datetime="2024-11-01">01 November, 2024</time>
+                  </div>
+                </div>
+                <!-- End recent post item-->
+
+                <div class="post-item">
+                  <img src="Timnas Indonesia.jpg" alt="" class="flex-shrink-0" />
+                  <div>
+                    <h4><a href="blog-details-indah.html">BRI sebagai Pendorong Sepak Bola Indonesia</a></h4>
+                    <time datetime="2020-01-01">03 November, 2024</time>
+                  </div>
+                </div>
+                <!-- End recent post item-->
+
+                <div class="post-item">
+                  <img src="BRI-10-425837298.webp" alt="" class="flex-shrink-0" />
+                  <div>
+                    <h4><a href="blog-details-indah.html">BRI Menjangkau Desa Mewujudkan Masa Depan melalui Inklusi Keuangan </a></h4>
+                    <time datetime="2020-01-01">5 Nov, 2024</time>
+                  </div>
+                </div>
+                <!-- End recent post item-->
+              </div>
+              <!--/Recent Posts Widget -->
+
+              <!-- Tags Widget -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer position-relative light-background">
+      <div class="container footer-top">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-about">
+            <h4>BRI LINK</h4>
+            <p>
+              Brilink memberikan dampak signifikan di Kecamatan Dolok Pardamean. Dengan kemudahan akses KUR, dukungan digital melalui Brimo, dan agen Brilink yang berada di komunitas, BRI berhasil menciptakan ekosistem yang memperkuat
+              ekonomi lokal dan memberdayakan pelaku usaha kecil. Kehadiran Brilink memberikan solusi nyata dalam meningkatkan kesejahteraan masyarakat dan memperkokoh perekonomian di Dolok Pardamean, membuktikan bahwa inklusi keuangan
+              mampu menjadi fondasi kuat dalam pembangunan ekonomi wilayah terpencil.
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contact Us</h4>
+            <p>Jalan Sipahutar Keluranah, Sukaraja, Kec. Siantar Marihat</p>
+            <p>Kota Pematangsiantar</p>
+            <p>Sumatera Utara 21133</p>
+            <p class="mt-4"><strong>Phone:</strong> <span>+62 838 9331 6358</span></p>
+            <p><strong>Email:</strong> <span>jhodysaragih49@gmail.com</span></p>
+          </div>
+
+          <div class="col-lg-4 col-md-12 footer-social text-center text-md-start">
+            <h4>Social Media</h4>
+            <div class="social-links d-flex">
+              <a href="https://x.com/JhodySaragih?t=Ooh3cIcDw2wqcpRikrYsDQ&s=09&mx=2"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://www.facebook.com/profile.php?id=61567686034267&mibextid=ZbWKwL"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/jhodyyz/profilecard/?igsh=MWcwbzhmdTVjN2p4dg%3D%3D"><i class="bi bi-instagram"></i></a>
+              <a href="https://id.linkedin.com/in/jhody-saragih-2227a9338"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="sitename">SMK Bintang Timur</strong> <span>All Rights Reserved</span></p>
+        <div class="credits"></div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
